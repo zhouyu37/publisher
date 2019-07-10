@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<table border="1px">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>operate</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i in all_publisher %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>
+                <a href="/del_publish/?pk={{ i.id }}">delete</a>
+                <a href="/edit_publish/?pk={{ i.id }}">edit</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+<a href="/add_publish/">Add new publisher</a>
+</body>
+</html>

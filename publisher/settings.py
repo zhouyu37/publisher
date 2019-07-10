@@ -74,14 +74,19 @@ WSGI_APPLICATION = 'publisher.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+#CREATE DATABASE IF NOT EXISTS publish DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'publish',
+        'USER':'zhou',
+        'PASSWORD':'123',
+        'HOST':'10.110.152.159',
+        'PORT':3306,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -120,3 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS=(
+    '%s/statics' % BASE_DIR,
+)
