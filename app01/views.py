@@ -7,6 +7,17 @@ from app01 import models
 def index(request):
     return HttpResponse("ok")
 
+def login1(request):
+    if request.method == "POST":
+        user = request.POST.get("user")
+        print("zhou11",user)
+        pwd = request.POST.get("pwd")
+        if user == "alex" and pwd == "123456":
+            return redirect("/index")
+        else:
+            error_msg = "user or password is wrong"
+    return render(request,"newlogin.html")
+
 def login(request):
     error_msg=""
     if request.method == "POST":
